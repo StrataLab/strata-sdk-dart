@@ -218,7 +218,7 @@ class ContainsImmutable {
 
   factory ContainsImmutable.toplValue(Value_TOPL v) =>
       ContainsImmutable.int128(v.quantity) +
-      ContainsImmutable.stakingRegistration(v.registration);
+      ContainsImmutable.nullableTest(v.hasRegistration(), v.registration);
 
   factory ContainsImmutable.assetValue(Value_Asset asset) =>
       ContainsImmutable.nullableTest(asset.hasGroupId(), asset.groupId) +
