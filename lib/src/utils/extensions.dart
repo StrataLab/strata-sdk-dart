@@ -267,14 +267,6 @@ extension IntList on List<int> {
 }
 
 extension IterableExtensions<T> on Iterable<T> {
-  
-  // sum function for simplication
-  T sum(T Function(T, T) add) {
-    if (isEmpty) {
-      throw StateError('Cannot sum elements of an empty iterable');
-    }
-    return reduce(add);
-  }
 
   Iterable<List<T>> buffered(int size) sync* {
     final buffer = <T>[];
