@@ -6,7 +6,7 @@ import '../../../brambldart.dart';
 /// Int 128 syntax extensions
 
 extension Int128Syntax on Int128 {
-  Int128 get zero => Int128(value: [0, 0, 0, 0]); //// 4 int zeroes
+  Int128 get zero => BigInt.zero.toInt128();
 
   int toInt() => value.toBigInt.toInt();
 }
@@ -55,6 +55,29 @@ extension Int128Operations on Int128 {
     return result.toInt128();
   }
 
+  double operator /(Int128 other) {
+    final a = toBigInt();
+    final b = other.toBigInt();
+
+    if (b == BigInt.zero) {
+      throw UnsupportedError("Division by zero should be a crime");
+    }
+
+    return a / b;
+  }
+
+  // discarding remainder
+  Int128 operator ~/(Int128 other) {
+    final a = toBigInt();
+    final b = other.toBigInt();
+
+    if (b == BigInt.zero) {
+      throw UnsupportedError("Division by zero should be a crime");
+    }
+    
+    return (a ~/ b).toInt128();
+  }
+
   Int128 operator %(Int128 other) {
     final thisBigInt = toBigInt();
     final otherBigInt = other.toBigInt();
@@ -63,7 +86,6 @@ extension Int128Operations on Int128 {
   }
 
   String get show => toBigInt().toString();
-
 }
 
 // dart shorthand instead of reduce
