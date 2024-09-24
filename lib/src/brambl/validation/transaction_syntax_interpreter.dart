@@ -152,7 +152,7 @@ class TransactionSyntaxInterpreter {
       IoTransaction transaction) {
     BigInt sumAll(List<Value> values) {
       if (values.isEmpty) return BigInt.zero;
-      return values.map((value) => getQuantity(value)).reduce((a, b) => a + b);
+      return values.map((value) => getQuantity(value)).sum();
     }
 
     final inputsSum =
@@ -310,7 +310,7 @@ class TransactionSyntaxInterpreter {
         final Map<String, BigInt> summed = {};
 
         grouped.forEach((key, value) {
-          summed[key] = value.reduce((a, b) => a + b);
+          summed[key] = value.sum();
         });
 
         return Either.right(summed);

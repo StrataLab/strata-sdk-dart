@@ -7,7 +7,7 @@ import 'package:topl_common/proto/quivr/models/proof.pb.dart';
 import '../common/contains_immutable.dart';
 
 /// A transaction cost calculator.
-class TransactionCostCalculator<F> {
+class TransactionCostCalculator{
   TransactionCostCalculator(this.transactionCostConfig);
   final TransactionCostConfig transactionCostConfig;
 
