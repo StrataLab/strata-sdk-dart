@@ -46,7 +46,7 @@ extension Int128Operations on Int128 {
   String get show => toBigInt().toString();
 }
 
-// dart exclusive shorthand
+// dart shorthand instead of reduce
 extension IterableInt128SumExtension on Iterable<Int128> {
 
   /// Returns the sum of all elements in the iterable.

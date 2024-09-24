@@ -308,6 +308,20 @@ extension IterableToUint8List on Iterable<int> {
   }
 }
 
+// dart exclusive shorthand
+extension IterableBigIntExtensions on Iterable<BigInt> {
+
+
+  /// Returns the sum of all elements in the iterable.
+  /// dart shorthand instead of reduce
+  BigInt sum() {
+    if (isEmpty) {
+      throw StateError('Cannot sum elements of an empty iterable');
+    }
+    return reduce((value, element) => value + element);
+  }
+}
+
 extension ListExtensions<T> on List<T> {
   /// Splits the list into two lists at the given [index], and returns a tuple
   /// containing the two resulting lists. The [index] is inclusive for the first
