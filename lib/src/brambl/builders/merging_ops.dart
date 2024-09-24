@@ -45,10 +45,10 @@ class MergingOps {
   // Precondition: the values represent a valid merge
   static UnspentTransactionOutput merge(
     List<Txo> values,
-    LockAddress mergedAssetLockAddress,
-    Struct ephemeralMetadata,
+    LockAddress mergedAssetLockAddress, {
+    Struct? ephemeralMetadata,
     ByteString? commitment,
-  ) {
+  }) {
     final quantity = values.map((v) => v.transactionOutput.value.asset.quantity).sum();
 
     final bool isGroupFungible = values.first.transactionOutput.value.asset.fungibility == FungibilityType.GROUP;
