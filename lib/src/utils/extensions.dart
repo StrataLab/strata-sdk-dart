@@ -2,11 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:brambldart/src/crypto/signing/ed25519/ed25519_spec.dart'
-    as spec_e;
-import 'package:brambldart/src/crypto/signing/extended_ed25519/extended_ed25519_spec.dart'
-    as spec_xe;
-import 'package:brambldart/src/crypto/signing/signing.dart' as spec;
 import 'package:collection/collection.dart';
 import 'package:convert/convert.dart';
 import 'package:fixnum/fixnum.dart';
@@ -14,6 +9,11 @@ import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
 import 'package:topl_common/proto/quivr/models/shared.pb.dart' as pb;
 
 import '../common/functional/either.dart';
+import '../crypto/signing/ed25519/ed25519_spec.dart'
+    as spec_e;
+import '../crypto/signing/extended_ed25519/extended_ed25519_spec.dart'
+    as spec_xe;
+import '../crypto/signing/signing.dart' as spec;
 
 extension StringExtension on String {
   /// Converts string  to a UTF-8 [Uint8List].
@@ -267,6 +267,15 @@ extension IntList on List<int> {
 }
 
 extension IterableExtensions<T> on Iterable<T> {
+  
+  // sum function for simplication
+  T sum(T Function(T, T) add) {
+    if (isEmpty) {
+      throw StateError('Cannot sum elements of an empty iterable');
+    }
+    return reduce(add);
+  }
+
   Iterable<List<T>> buffered(int size) sync* {
     final buffer = <T>[];
     for (final element in this) {

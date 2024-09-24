@@ -45,3 +45,15 @@ extension Int128Operations on Int128 {
 
   String get show => toBigInt().toString();
 }
+
+// dart exclusive shorthand
+extension IterableInt128SumExtension on Iterable<Int128> {
+
+  /// Returns the sum of all elements in the iterable.
+  Int128 sum() {
+    if (isEmpty) {
+      throw StateError('Cannot sum elements of an empty iterable');
+    }
+    return reduce((value, element) => value + element);
+  }
+}

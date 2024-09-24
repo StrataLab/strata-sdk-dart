@@ -37,3 +37,9 @@ class ByteString {
   @override
   int get hashCode => _bytes.hashCode;
 }
+
+
+extension Uint8ListByteStringExtensions on Uint8List {
+  /// Creates a new [ByteString] object from this [Uint8List].
+  ByteString get byteString => ByteString(this);
+}
