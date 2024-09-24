@@ -71,3 +71,7 @@ class UserInputError extends BuilderError {
 class UnableToBuildTransaction extends BuilderError {
   UnableToBuildTransaction(String super.message, Exception cause) : super(exception: cause);
 }
+
+class BuilderRuntimeError extends BuilderError {
+  BuilderRuntimeError(String super.message, Exception cause) : super(exception: cause);
+}
