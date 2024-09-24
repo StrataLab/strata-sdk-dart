@@ -50,9 +50,24 @@ class BuilderError implements Exception {
 
 }
 
+
+// todo: figure out if constructor method or factory method is better
+
+
+
 enum BuilderErrorType {
   // inputBuilderError,
   // outputBuilderError,
   userInputError,
   builderRuntimeError,
+}
+
+
+
+class UserInputError extends BuilderError {
+  UserInputError(String super.message);
+}
+
+class UnableToBuildTransaction extends BuilderError {
+  UnableToBuildTransaction(String super.message, Exception cause) : super(exception: cause);
 }
