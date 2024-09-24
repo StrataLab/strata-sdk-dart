@@ -472,7 +472,7 @@ extension WithResultExtension<T> on T {
   }
 }
 
-extension Uint32Extensions on UInt32Value {
+extension BigintUint32Extensions on UInt32Value {
   BigInt toBigInt() {
     // Access the underlying integer value
     final int intValue = value;
