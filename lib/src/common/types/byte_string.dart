@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
-import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
+import 'package:strata_protobuf/google_protobuf.dart';
 
 import '../../utils/extensions.dart';
 

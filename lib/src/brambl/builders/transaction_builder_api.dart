@@ -2,24 +2,9 @@ import 'dart:typed_data';
 
 import 'package:fixnum/fixnum.dart';
 import 'package:protobuf/protobuf.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/asset.pbenum.dart';
-import 'package:topl_common/proto/brambl/models/box/assets_statements.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/attestation.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/datum.pb.dart';
-import 'package:topl_common/proto/brambl/models/event.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/schedule.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/unspent_transaction_output.pb.dart';
-import 'package:topl_common/proto/genus/genus_models.pb.dart';
-import 'package:topl_common/proto/google/protobuf/struct.pb.dart' as struct;
-import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+
+import 'package:strata_protobuf/google_protobuf.dart' hide Value;
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../common/common.dart';
 import '../../utils/extensions.dart';
@@ -97,7 +82,7 @@ abstract class TransactionBuilderApiDefinition {
     SeriesId seriesId,
     FungibilityType fungibilityType,
     QuantityDescriptorType quantityDescriptorType, {
-    struct.Struct? metadata,
+    Struct? metadata,
     ByteString? commitment,
   });
 
@@ -278,7 +263,7 @@ abstract class TransactionBuilderApiDefinition {
     int fee,
     LockAddress mintedAssetLockAddress,
     LockAddress changeAddress, {
-    struct.Struct? ephemeralMetadata,
+    Struct? ephemeralMetadata,
     Uint8List? commitment,
   });
 
@@ -309,7 +294,7 @@ abstract class TransactionBuilderApiDefinition {
     int fee,
     LockAddress mergedAssetLockAddress,
     LockAddress changeAddress, {
-    struct.Struct? ephemeralMetadata,
+    Struct? ephemeralMetadata,
     Uint8List? commitment,
   });
 }
@@ -593,7 +578,7 @@ class TransactionBuilderApi implements TransactionBuilderApiDefinition {
     int fee,
     LockAddress mintedAssetLockAddress,
     LockAddress changeAddress, {
-    struct.Struct? ephemeralMetadata,
+    Struct? ephemeralMetadata,
     Uint8List? commitment,
   }) {
     final d = datum();
@@ -711,7 +696,7 @@ class TransactionBuilderApi implements TransactionBuilderApiDefinition {
     SeriesId seriesId,
     FungibilityType fungibilityType,
     QuantityDescriptorType quantityDescriptorType, {
-    struct.Struct? metadata,
+    Struct? metadata,
     ByteString? commitment,
   }) {
     return UnspentTransactionOutput(
@@ -790,7 +775,7 @@ class TransactionBuilderApi implements TransactionBuilderApiDefinition {
   @override
   IoTransaction buildAssetMergeTransaction(List<TransactionOutputAddress> utxosToMerge, List<Txo> txos,
       Map<LockAddress, Lock_Predicate> locks, int fee, LockAddress mergedAssetLockAddress, LockAddress changeAddress,
-      {struct.Struct? ephemeralMetadata, Uint8List? commitment}) {
+      {Struct? ephemeralMetadata, Uint8List? commitment}) {
     try {
       final d = datum();
 
@@ -817,8 +802,6 @@ class TransactionBuilderApi implements TransactionBuilderApiDefinition {
       final mergedUtxo = MergingOps.merge(txosToMerge, mergedAssetLockAddress,
           ephemeralMetadata: ephemeralMetadata, commitment: commitment?.asByteString);
 
-      // TODO: remove this once we update the protobufs
-      // ignore: unused_local_variable
       final asm = AssetMergingStatement(inputUtxos: utxosToMerge, outputIdx: utxosChange.length);
 
       // Return the IoTransaction
@@ -826,7 +809,7 @@ class TransactionBuilderApi implements TransactionBuilderApiDefinition {
         inputs: stxos,
         outputs: [...utxosChange, mergedUtxo],
         datum: d,
-        // mergingStatements: [asm], TODO: update protobufs?
+        mergingStatements: [asm],
       );
     } on Exception catch (e) {
       throw BuilderError('Failed to build asset merge transaction. cause: $e', exception: e);

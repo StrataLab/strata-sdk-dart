@@ -1,5 +1,5 @@
-import 'package:topl_common/proto/brambl/models/evidence.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart' as pb;
+import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_protobuf/strata_protobuf.dart' as pb;
 
 import '../../crypto/accumulators/accumulators.dart';
 import '../../crypto/accumulators/merkle/merkle_tree.dart';

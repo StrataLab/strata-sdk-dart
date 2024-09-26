@@ -8,8 +8,7 @@ import 'package:brambldart/src/crypto/generation/mnemonic/mnemonic.dart';
 import 'package:brambldart/src/crypto/signing/extended_ed25519/extended_ed25519.dart';
 import 'package:brambldart/src/utils/extensions.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/indices.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../mock_wallet_key_api.dart';
 

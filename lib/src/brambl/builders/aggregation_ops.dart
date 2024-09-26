@@ -1,5 +1,5 @@
-import 'package:topl_common/proto/brambl/models/box/asset.pbenum.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 import '../../../brambldart.dart';
 

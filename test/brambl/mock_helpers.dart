@@ -1,22 +1,8 @@
 import 'package:brambldart/brambldart.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:protobuf/protobuf.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/asset.pbenum.dart';
-import 'package:topl_common/proto/brambl/models/box/attestation.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/challenge.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/datum.pb.dart';
-import 'package:topl_common/proto/brambl/models/event.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
-import 'package:topl_common/proto/brambl/models/indices.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/schedule.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/unspent_transaction_output.pb.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 /// All protobuf returnables are frozen
 /// This is to ensure that they are not mutated and are available for rebuild during testing

@@ -1,7 +1,6 @@
 import 'package:protobuf/protobuf.dart';
-import 'package:topl_common/proto/brambl/models/box/asset.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 extension LvlAsBoxVal on Value_LVL {
   Value asBoxVal() => Value().deepCopy()..lvl = this;

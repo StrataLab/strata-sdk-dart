@@ -1,8 +1,6 @@
 import 'package:protobuf/protobuf.dart';
-import 'package:topl_common/proto/brambl/models/common.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 import '../../../brambldart.dart';
 

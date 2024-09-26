@@ -1,12 +1,6 @@
 import 'package:convert/convert.dart';
 import 'package:protobuf/protobuf.dart';
-import 'package:topl_common/proto/brambl/models/box/attestation.pb.dart';
-import 'package:topl_common/proto/brambl/models/indices.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/proposition.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../common/functional/either.dart';
 import '../../crypto/signing/extended_ed25519/extended_ed25519.dart';

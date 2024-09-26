@@ -1,6 +1,5 @@
 import 'package:fixnum/fixnum.dart';
-import 'package:topl_common/proto/brambl/models/datum.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../quivr/algebras/digest_verifier.dart';
 import '../quivr/algebras/signature_verifier.dart';

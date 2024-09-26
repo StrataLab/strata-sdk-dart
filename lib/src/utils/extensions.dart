@@ -5,8 +5,8 @@ import 'dart:typed_data';
 import 'package:collection/collection.dart';
 import 'package:convert/convert.dart';
 import 'package:fixnum/fixnum.dart';
-import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart' as pb;
+import 'package:strata_protobuf/google_protobuf.dart';
+import 'package:strata_protobuf/strata_protobuf.dart' as pb;
 
 import '../common/functional/either.dart';
 import '../crypto/signing/ed25519/ed25519_spec.dart' as spec_e;

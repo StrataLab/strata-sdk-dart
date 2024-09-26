@@ -1,16 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:brambldart/brambldart.dart';
-import 'package:collection/collection.dart';
-import 'package:meta/meta.dart';
 import 'package:protobuf/protobuf.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/unspent_transaction_output.pb.dart';
-import 'package:topl_common/proto/consensus/models/operational_certificate.pb.dart';
-import 'package:topl_common/proto/genus/genus_models.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../mock_helpers.dart';
 

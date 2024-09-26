@@ -1,9 +1,8 @@
 import 'package:brambldart/src/brambl/common/contains_evidence.dart';
 import 'package:brambldart/src/brambl/common/contains_signable.dart';
 import 'package:brambldart/src/brambl/syntax/transaction_syntax.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/common.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
 
 import '../mock_helpers.dart';
 

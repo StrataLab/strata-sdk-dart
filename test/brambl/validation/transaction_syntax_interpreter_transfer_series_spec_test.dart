@@ -3,13 +3,8 @@ import 'package:brambldart/src/brambl/validation/transaction_syntax_error.dart';
 import 'package:brambldart/src/brambl/validation/transaction_syntax_interpreter.dart';
 import 'package:collection/collection.dart';
 import 'package:protobuf/protobuf.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/event.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/unspent_transaction_output.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
 
 import '../mock_helpers.dart';
 

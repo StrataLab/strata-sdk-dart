@@ -1,5 +1,4 @@
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
-
+import 'package:strata_protobuf/strata_protobuf.dart';
 import '../../crypto/signing/extended_ed25519/extended_ed25519_spec.dart' as xspec;
 import '../../crypto/signing/signing.dart' as s;
 

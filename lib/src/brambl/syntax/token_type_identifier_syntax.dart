@@ -1,8 +1,6 @@
 import 'package:meta/meta.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
-import 'package:topl_common/proto/consensus/models/staking.pb.dart';
-import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
+import 'package:strata_protobuf/google_protobuf.dart' hide Value;
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../common/types/byte_string.dart';
 

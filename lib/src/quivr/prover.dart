@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../crypto/hash/hash.dart';
 import '../utils/extensions.dart';

@@ -1,6 +1,6 @@
 import 'package:brambldart/src/brambl/constants/network_constants.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 class AddressCodecTestCases {
   final testMainLockZeroLockAddress = LockAddress(

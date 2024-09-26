@@ -4,8 +4,8 @@ import 'dart:typed_data';
 
 import 'package:brambldart/brambldart.dart';
 import 'package:brambldart/src/utils/extensions.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
 
 void main() {
   group('Aggregation Operation Tests', () {

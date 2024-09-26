@@ -3,13 +3,8 @@ import 'dart:typed_data';
 import 'package:brambldart/brambldart.dart';
 import 'package:brambldart/src/crypto/accumulators/accumulators.dart';
 import 'package:convert/convert.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/asset.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/unspent_transaction_output.pb.dart';
-import 'package:topl_common/proto/genus/genus_models.pb.dart';
-import 'package:topl_common/proto/google/protobuf/struct.pb.dart';
+import 'package:strata_protobuf/google_protobuf.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../crypto/accumulators/merkle/merkle_tree.dart';
 

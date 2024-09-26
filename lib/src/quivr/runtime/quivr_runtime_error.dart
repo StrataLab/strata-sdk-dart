@@ -1,6 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/proposition.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 sealed class QuivrRunTimeError implements Exception {
   /// Checks if the current instance is of type [ValidationError] and if its type matches the provided [type].

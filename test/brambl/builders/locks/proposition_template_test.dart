@@ -1,6 +1,6 @@
 import 'package:brambldart/brambldart.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
 
 import '../../mock_helpers.dart';
 

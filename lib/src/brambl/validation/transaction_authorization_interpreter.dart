@@ -1,8 +1,4 @@
-import 'package:topl_common/proto/brambl/models/box/attestation.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/proposition.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../../brambldart.dart';
 import '../../quivr/runtime/dynamic_context.dart';
