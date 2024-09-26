@@ -1,4 +1,4 @@
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 /// Provides Digest verification for use in a Dynamic Context
 abstract class ParsableDataInterface {

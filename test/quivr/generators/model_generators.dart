@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 class ModelGenerators {
   List<int> genSizedStrictByteString(int n, {Random? random}) {

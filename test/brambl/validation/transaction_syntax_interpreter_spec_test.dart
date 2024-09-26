@@ -5,8 +5,8 @@ import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/schedule.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 import '../mock_helpers.dart';
 

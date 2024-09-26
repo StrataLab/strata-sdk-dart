@@ -1,7 +1,4 @@
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/brambl/models/indices.pb.dart';
-import 'package:topl_common/proto/quivr/models/proposition.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../common/functional/either.dart';
 import '../builders/locks/lock_template.dart';

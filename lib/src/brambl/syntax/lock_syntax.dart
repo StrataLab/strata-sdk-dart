@@ -1,6 +1,5 @@
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 import '../common/contains_evidence.dart';
 

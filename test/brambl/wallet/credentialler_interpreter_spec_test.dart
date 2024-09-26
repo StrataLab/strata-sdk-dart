@@ -7,16 +7,8 @@ import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/box/assets_statements.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/attestation.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/challenge.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/datum.pb.dart';
-import 'package:topl_common/proto/brambl/models/indices.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 import '../mock_helpers.dart';
 import '../mock_wallet_key_api.dart';

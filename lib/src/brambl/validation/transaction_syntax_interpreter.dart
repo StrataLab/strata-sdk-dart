@@ -1,13 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/assets_statements.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/spent_transaction_output.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/unspent_transaction_output.pb.dart';
-import 'package:topl_common/proto/quivr/models/proof.pb.dart';
-import 'package:topl_common/proto/quivr/models/proposition.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../../brambldart.dart';
 import 'transaction_syntax_error.dart';
@@ -152,7 +144,7 @@ class TransactionSyntaxInterpreter {
       IoTransaction transaction) {
     BigInt sumAll(List<Value> values) {
       if (values.isEmpty) return BigInt.zero;
-      return values.map((value) => getQuantity(value)).reduce((a, b) => a + b);
+      return values.map((value) => getQuantity(value)).sum();
     }
 
     final inputsSum =
@@ -310,7 +302,7 @@ class TransactionSyntaxInterpreter {
         final Map<String, BigInt> summed = {};
 
         grouped.forEach((key, value) {
-          summed[key] = value.reduce((a, b) => a + b);
+          summed[key] = value.sum();
         });
 
         return Either.right(summed);

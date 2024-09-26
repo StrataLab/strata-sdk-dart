@@ -4,9 +4,9 @@ import 'package:brambldart/src/brambl/syntax/group_policy_syntax.dart';
 import 'package:brambldart/src/brambl/syntax/series_policy_syntax.dart';
 import 'package:brambldart/src/brambl/syntax/token_type_identifier_syntax.dart';
 import 'package:protobuf/protobuf.dart';
+import 'package:strata_protobuf/google_protobuf.dart' hide Value;
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
 
 import '../mock_helpers.dart';
 

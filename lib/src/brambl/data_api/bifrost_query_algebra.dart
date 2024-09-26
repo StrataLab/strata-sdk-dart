@@ -1,10 +1,7 @@
 import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc_connection_interface.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
-import 'package:topl_common/proto/brambl/models/transaction/io_transaction.pb.dart';
-import 'package:topl_common/proto/consensus/models/block_id.pb.dart';
-import 'package:topl_common/proto/node/models/block.pb.dart';
-import 'package:topl_common/proto/node/services/bifrost_rpc.pbgrpc.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
+
 
 /// Defines a Bifrost Query API for interacting with a Bifrost node.
 sealed class BifrostQueryAlgbraDefinition {

@@ -1,6 +1,4 @@
-import 'package:topl_common/proto/brambl/models/box/challenge.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/lock.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 
 import '../../../common/functional/either.dart';
 import '../builder_error.dart';

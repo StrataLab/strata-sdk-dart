@@ -1,7 +1,7 @@
 import 'package:brambldart/brambldart.dart';
 import 'package:protobuf/protobuf.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/box/attestation.pb.dart';
 
 import '../mock_helpers.dart';
 

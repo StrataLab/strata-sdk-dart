@@ -4,8 +4,8 @@ import 'package:brambldart/src/quivr/runtime/quivr_runtime_error.dart';
 import 'package:brambldart/src/quivr/verifier.dart';
 import 'package:brambldart/src/utils/extensions.dart';
 import 'package:fixnum/fixnum.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
 
 import 'helpers/mock_helpers.dart';
 import 'helpers/very_secure_signature_routine.dart';

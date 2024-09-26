@@ -2,9 +2,8 @@ import 'dart:math';
 
 import 'package:brambldart/src/brambl/codecs/address_codecs.dart';
 import 'package:brambldart/src/brambl/constants/network_constants.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/address.pb.dart';
-import 'package:topl_common/proto/brambl/models/identifier.pb.dart';
 
 import 'address_codec_test_cases.dart';
 

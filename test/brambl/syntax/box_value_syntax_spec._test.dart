@@ -1,8 +1,6 @@
 import 'package:brambldart/brambldart.dart';
+import 'package:strata_protobuf/strata_protobuf.dart';
 import 'package:test/test.dart';
-import 'package:topl_common/proto/brambl/models/box/box.pb.dart';
-import 'package:topl_common/proto/brambl/models/box/value.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart';
 
 import '../mock_helpers.dart';
 

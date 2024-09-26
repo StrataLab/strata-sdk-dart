@@ -2,18 +2,16 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:brambldart/src/crypto/signing/ed25519/ed25519_spec.dart'
-    as spec_e;
-import 'package:brambldart/src/crypto/signing/extended_ed25519/extended_ed25519_spec.dart'
-    as spec_xe;
-import 'package:brambldart/src/crypto/signing/signing.dart' as spec;
 import 'package:collection/collection.dart';
 import 'package:convert/convert.dart';
 import 'package:fixnum/fixnum.dart';
-import 'package:topl_common/proto/google/protobuf/wrappers.pb.dart';
-import 'package:topl_common/proto/quivr/models/shared.pb.dart' as pb;
+import 'package:strata_protobuf/google_protobuf.dart';
+import 'package:strata_protobuf/strata_protobuf.dart' as pb;
 
 import '../common/functional/either.dart';
+import '../crypto/signing/ed25519/ed25519_spec.dart' as spec_e;
+import '../crypto/signing/extended_ed25519/extended_ed25519_spec.dart' as spec_xe;
+import '../crypto/signing/signing.dart' as spec;
 
 extension StringExtension on String {
   /// Converts string  to a UTF-8 [Uint8List].
@@ -28,8 +26,7 @@ extension StringExtension on String {
     return Int8List.fromList(bytes);
   }
 
-  (String, String) splitAt(int index) =>
-      (substring(0, index), substring(index));
+  (String, String) splitAt(int index) => (substring(0, index), substring(index));
 
   List<String> splitAtNewline() {
     return split('\n');
@@ -56,9 +53,7 @@ extension BigIntExtensions on BigInt {
   /// In the case of BigInt(0), it will return a Uint8List with a single 0 byte: [0]
   Uint8List toUint8List() {
     assert(this >= BigInt.zero, 'Cannot convert negative BigInt to Uint8List');
-    return this == BigInt.zero
-        ? Uint8List(1)
-        : toByteData().buffer.asUint8List();
+    return this == BigInt.zero ? Uint8List(1) : toByteData().buffer.asUint8List();
   }
 
   /// Converts a [BigInt] to an [Int8List]
@@ -163,8 +158,7 @@ extension Uint8ListExtension on Uint8List {
   /// Returns a [BigInt] representation of the [Uint8List] in little-endian byte order.
   BigInt fromLittleEndian() {
     final reversed = this.reversed.toList();
-    final hex =
-        reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+    final hex = reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
     return BigInt.parse(hex, radix: 16);
   }
 
@@ -234,8 +228,7 @@ extension Int8ListExtension on Int8List {
 
   BigInt fromLittleEndian() {
     final reversed = this.reversed.toList();
-    final hex =
-        reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+    final hex = reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
     return BigInt.parse(hex, radix: 16);
   }
 }
@@ -281,6 +274,7 @@ extension IterableExtensions<T> on Iterable<T> {
     }
   }
 
+  /// Groups the elements of the iterable into chunks of the specified [size].
   Iterable<List<T>> grouped(int size) sync* {
     final iterator = this.iterator;
     while (iterator.moveNext()) {
@@ -297,13 +291,34 @@ extension IterableExtensions<T> on Iterable<T> {
     return skip(length - count);
   }
 
-  Iterable<T> sortedAlphabetically(Comparable Function(T e) key) =>
-      toList()..sort((a, b) => key(a).compareTo(key(b)));
+  Iterable<T> sortedAlphabetically(Comparable Function(T e) key) => toList()..sort((a, b) => key(a).compareTo(key(b)));
+
+  /// Groups elements based on a key function
+  /// returns a map of the grouped elements
+  Map<K, List<T>> groupBy<K>(K Function(T) keyFunction) {
+    return fold<Map<K, List<T>>>({}, (Map<K, List<T>> map, T element) {
+      final key = keyFunction(element);
+      map.putIfAbsent(key, () => []).add(element);
+      return map;
+    });
+  }
 }
 
 extension IterableToUint8List on Iterable<int> {
   Uint8List toUint8List() {
     return Uint8List.fromList(toList());
+  }
+}
+
+// dart exclusive shorthand
+extension IterableBigIntExtensions on Iterable<BigInt> {
+  /// Returns the sum of all elements in the iterable.
+  /// dart shorthand instead of reduce
+  BigInt sum() {
+    if (isEmpty) {
+      throw StateError('Cannot sum elements of an empty iterable');
+    }
+    return reduce((value, element) => value + element);
   }
 }
 
@@ -395,8 +410,7 @@ extension CryptoVerificationKeyExtensions on spec.VerificationKey {
   pb.VerificationKey toProto() {
     if (this is spec_e.PublicKey) {
       final ePK = this as spec_e.PublicKey;
-      return pb.VerificationKey(
-          ed25519: pb.VerificationKey_Ed25519Vk(value: ePK.bytes));
+      return pb.VerificationKey(ed25519: pb.VerificationKey_Ed25519Vk(value: ePK.bytes));
     } else if (this is spec_xe.PublicKey) {
       final xePK = this as spec_xe.PublicKey;
       return pb.VerificationKey(
@@ -458,7 +472,7 @@ extension WithResultExtension<T> on T {
   }
 }
 
-extension Uint32Extensions on UInt32Value {
+extension BigintUint32Extensions on UInt32Value {
   BigInt toBigInt() {
     // Access the underlying integer value
     final int intValue = value;
