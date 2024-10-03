@@ -1,0 +1,8 @@
+name: strata_sdk_monorepo
+
+packages:
+  - packages/**
+
+scripts:
+  analyze:
+    exec: dart analyze .

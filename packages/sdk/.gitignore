@@ -42,6 +42,3 @@ doc/api/
 # Generated Dart Files
 *.g.dart
 documentation/static/dartdoc/*
-
-# Melos
-pubspec_overrides.yaml
