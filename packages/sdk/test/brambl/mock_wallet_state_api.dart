@@ -1,8 +1,8 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_sdk/src/common/functional/either.dart';
 import 'package:strata_sdk/src/sdk/builders/locks/lock_template.dart';
 import 'package:strata_sdk/src/sdk/common/contains_evidence.dart';
 import 'package:strata_sdk/src/sdk/data_api/wallet_state_algebra.dart';
-import 'package:strata_sdk/src/common/functional/either.dart';
 
 import 'mock_helpers.dart';
 

@@ -3,10 +3,10 @@
 import 'dart:convert';
 
 import 'package:strata_protobuf/strata_protobuf.dart';
-import 'package:strata_sdk/src/sdk/wallet/wallet_api.dart';
 import 'package:strata_sdk/src/crypto/encryption/vault_store.dart';
 import 'package:strata_sdk/src/crypto/generation/mnemonic/mnemonic.dart';
 import 'package:strata_sdk/src/crypto/signing/extended_ed25519/extended_ed25519.dart';
+import 'package:strata_sdk/src/sdk/wallet/wallet_api.dart';
 import 'package:strata_sdk/src/utils/extensions.dart';
 import 'package:test/test.dart';
 

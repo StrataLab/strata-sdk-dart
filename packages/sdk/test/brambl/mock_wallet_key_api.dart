@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:strata_sdk/src/sdk/data_api/wallet_key_api_algebra.dart';
 import 'package:strata_sdk/src/common/functional/either.dart';
+import 'package:strata_sdk/src/sdk/data_api/wallet_key_api_algebra.dart';
 
 /// Mock implementation of the [WalletKeyApiAlgebra] interface.
 class MockWalletKeyApi extends WalletKeyApiAlgebra {

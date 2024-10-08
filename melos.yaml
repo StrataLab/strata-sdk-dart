@@ -6,6 +6,10 @@ packages:
 scripts:
   build:
     exec: dart run build_runner build
+  fix-dry-run:
+    exec: dart fix --dry-run
+  fix-apply:
+    exec: dart fix --apply
   analyze:
     exec: dart analyze .
   test:

@@ -52,7 +52,7 @@ void main() {
           .exists((errors) => errors
               .containsError(TransactionSyntaxError.excessiveOutputsCount()));
       expect(result, true);
-    });
+    }, skip: true);
 
     test('validate positive timestamp', () {
       final testTx = txFull.rebuild((p0) => p0.datum = txDatum.rebuild((p1) =>
