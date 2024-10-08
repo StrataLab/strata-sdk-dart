@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import '../../../../brambldart.dart';
+import '../../../../strata_sdk.dart';
 
 class Phrase {
   Phrase({

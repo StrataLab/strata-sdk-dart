@@ -1,6 +1,6 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 
 abstract class AggregationOpsDefinition {
   /// Aggregates the quantities of a sequence of values if allowable.

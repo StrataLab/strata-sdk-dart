@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import '../../../../brambldart.dart';
+import '../../../../strata_sdk.dart';
 import '../ed25519/ed25519_spec.dart' as ed25519_spec;
 import '../eddsa/ec.dart';
 import '../eddsa/ed25519.dart' as eddsa;

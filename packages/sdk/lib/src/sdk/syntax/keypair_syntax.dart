@@ -1,6 +1,6 @@
 import 'package:strata_protobuf/strata_protobuf.dart' as pb;
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 import '../../crypto/signing/extended_ed25519/extended_ed25519_spec.dart'
     as xspec;
 

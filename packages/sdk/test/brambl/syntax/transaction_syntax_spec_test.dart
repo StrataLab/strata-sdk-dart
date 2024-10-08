@@ -1,7 +1,7 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
-import 'package:strata_sdk/src/brambl/common/contains_evidence.dart';
-import 'package:strata_sdk/src/brambl/common/contains_signable.dart';
-import 'package:strata_sdk/src/brambl/syntax/transaction_syntax.dart';
+import 'package:strata_sdk/src/sdk/common/contains_evidence.dart';
+import 'package:strata_sdk/src/sdk/common/contains_signable.dart';
+import 'package:strata_sdk/src/sdk/syntax/transaction_syntax.dart';
 import 'package:test/test.dart';
 
 import '../mock_helpers.dart';

@@ -4,5 +4,9 @@ packages:
   - packages/**
 
 scripts:
+  build:
+    exec: dart run build_runner build
   analyze:
     exec: dart analyze .
+  test:
+    exec: dart test .

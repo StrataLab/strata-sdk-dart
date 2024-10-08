@@ -1,6 +1,6 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 import '../../quivr/runtime/dynamic_context.dart';
 import '../../quivr/runtime/quivr_runtime_error.dart';
 import '../../utils/helpers.dart';

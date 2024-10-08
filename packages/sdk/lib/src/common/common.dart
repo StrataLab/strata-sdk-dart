@@ -1,5 +1,5 @@
 /// exports common helpers
-library brambldart.common;
+library strata_sdk.common;
 
 export 'functional/either.dart';
 export 'functional/list_either.dart';

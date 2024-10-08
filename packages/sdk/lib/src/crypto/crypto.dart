@@ -1,5 +1,5 @@
 /// exports all Crypto libraries
-library brambldart.crypto;
+library strata_sdk.crypto;
 
 /// Encryption.KDF
 export 'encryption/kdf/scrypt.dart';

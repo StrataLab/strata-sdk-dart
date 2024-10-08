@@ -1,6 +1,6 @@
 import 'package:protobuf/protobuf.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
-import 'package:strata_sdk/src/brambl/validation/transaction_cost_calculator_interpreter.dart';
+import 'package:strata_sdk/src/sdk/validation/transaction_cost_calculator_interpreter.dart';
 import 'package:strata_sdk/strata_sdk.dart';
 import 'package:test/test.dart';
 

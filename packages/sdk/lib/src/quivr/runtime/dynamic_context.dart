@@ -2,7 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 import '../algebras/digest_verifier.dart';
 import '../algebras/signature_verifier.dart';
 import '../common/parsable_data_interface.dart';

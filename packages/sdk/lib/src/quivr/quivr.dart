@@ -1,5 +1,5 @@
 /// export quivr libraries
-library brambldart.quivr;
+library strata_sdk.quivr;
 
 export 'proposer.dart';
 export 'prover.dart';

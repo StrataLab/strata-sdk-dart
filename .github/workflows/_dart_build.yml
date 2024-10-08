@@ -1,0 +1,30 @@
+name: Dart Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: Dart Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Setup Dart Global
+        run: pub global activate melos
+
+      - name: Setup Melos
+        run: melos bootstrap
+      
+      - name: Build
+        run: melos build
+      
+      - name: Analyze
+        run: melos analyze
+      
+      - name: Test
+        run: melos test

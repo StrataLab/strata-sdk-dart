@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:strata_protobuf/strata_protobuf.dart';
-import 'package:strata_sdk/src/brambl/codecs/address_codecs.dart';
-import 'package:strata_sdk/src/brambl/constants/network_constants.dart';
+import 'package:strata_sdk/src/sdk/codecs/address_codecs.dart';
+import 'package:strata_sdk/src/sdk/constants/network_constants.dart';
 import 'package:test/test.dart';
 
 import 'address_codec_test_cases.dart';

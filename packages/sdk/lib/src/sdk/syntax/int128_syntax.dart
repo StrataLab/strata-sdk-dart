@@ -1,7 +1,7 @@
 import 'package:strata_protobuf/google_protobuf.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 
 /// Int 128 syntax extensions
 

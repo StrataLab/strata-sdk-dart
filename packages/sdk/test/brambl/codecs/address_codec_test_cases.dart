@@ -1,5 +1,5 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
-import 'package:strata_sdk/src/brambl/constants/network_constants.dart';
+import 'package:strata_sdk/src/sdk/constants/network_constants.dart';
 
 class AddressCodecTestCases {
   final testMainLockZeroLockAddress = LockAddress(

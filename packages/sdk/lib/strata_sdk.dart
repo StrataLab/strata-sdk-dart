@@ -1,8 +1,5 @@
 /// Let's get this show on the road!
-library brambldart;
-
-/// --- Brambl ---
-export "src/brambl/brambl.dart";
+library strata_sdk;
 
 /// --- Common ---
 export 'src/common/common.dart';
@@ -12,6 +9,9 @@ export 'src/crypto/crypto.dart';
 
 /// --- Quivr ---
 export 'src/quivr/quivr.dart';
+
+/// --- SDK ---
+export "src/sdk/sdk.dart";
 
 /// --- Utils ---
 export 'src/utils/constants.dart';

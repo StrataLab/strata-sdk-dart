@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 import 'transaction_syntax_error.dart';
 
 class TransactionSyntaxInterpreter {

@@ -1,6 +1,6 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 import '../../quivr/algebras/signature_verifier.dart';
 import '../../quivr/common/quivr_result.dart';
 import '../../quivr/runtime/quivr_runtime_error.dart';

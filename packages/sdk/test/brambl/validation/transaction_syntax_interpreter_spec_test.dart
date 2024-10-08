@@ -2,8 +2,8 @@ import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
-import 'package:strata_sdk/src/brambl/validation/transaction_syntax_error.dart';
-import 'package:strata_sdk/src/brambl/validation/transaction_syntax_interpreter.dart';
+import 'package:strata_sdk/src/sdk/validation/transaction_syntax_error.dart';
+import 'package:strata_sdk/src/sdk/validation/transaction_syntax_interpreter.dart';
 import 'package:strata_sdk/strata_sdk.dart';
 import 'package:test/test.dart';
 

@@ -1,14 +1,14 @@
 import 'package:sembast/sembast.dart';
-import 'package:strata_sdk/strata_sdk.dart' as brambl;
+import 'package:strata_sdk/strata_sdk.dart' as sdk;
 import 'package:strata_servicekit/models/fellowship.dart';
 
-class FellowshipStorageApi implements brambl.FellowshipStorageAlgebra {
+class FellowshipStorageApi implements sdk.FellowshipStorageAlgebra {
   FellowshipStorageApi(this._instance);
 
   final Database _instance;
 
   @override
-  Future<int> addFellowship(brambl.WalletFellowship walletEntity) async {
+  Future<int> addFellowship(sdk.WalletFellowship walletEntity) async {
     try {
       final latest = await fellowshipsStore.findFirst(_instance,
           finder: Finder(sortOrders: [SortOrder("x", false)]));
@@ -21,16 +21,16 @@ class FellowshipStorageApi implements brambl.FellowshipStorageAlgebra {
   }
 
   @override
-  Future<List<brambl.WalletFellowship>> findFellowships(
-      List<brambl.WalletFellowship> walletEntities) async {
+  Future<List<sdk.WalletFellowship>> findFellowships(
+      List<sdk.WalletFellowship> walletEntities) async {
     try {
       final walletFellowships = await fellowshipsStore
           .records(walletEntities.map((c) => c.xIdx))
           .get(_instance);
 
       return walletFellowships
-          .map((json) => brambl.WalletFellowship(
-              json!["x"]! as int, json["name"]! as String))
+          .map((json) =>
+              sdk.WalletFellowship(json!["x"]! as int, json["name"]! as String))
           .toList();
     } catch (e) {
       rethrow;

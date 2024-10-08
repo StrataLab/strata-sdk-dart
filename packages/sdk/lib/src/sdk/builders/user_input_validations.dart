@@ -1,6 +1,6 @@
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../../brambldart.dart';
+import '../../../strata_sdk.dart';
 import 'merging_ops.dart';
 
 class UserInputValidations {

@@ -4,7 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
 
-import '../../brambldart.dart' show Tokens;
+import '../../strata_sdk.dart' show Tokens;
 import '../common/functional/either.dart';
 import '../crypto/hash/hash.dart' show blake2b256;
 import '../utils/extensions.dart';
