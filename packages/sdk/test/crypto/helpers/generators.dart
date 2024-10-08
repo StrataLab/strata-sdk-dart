@@ -1,14 +1,15 @@
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:brambldart/src/crypto/generation/mnemonic/mnemonic.dart';
+import 'package:strata_sdk/src/crypto/generation/mnemonic/mnemonic.dart';
 
 class Generators {
   static final _random = Random.secure();
 
   /// Generate a random byte array
   static Uint8List genRandomlySizedByteArray() {
-    final list = List.generate(_random.nextInt(100), (_) => _random.nextInt(256));
+    final list =
+        List.generate(_random.nextInt(100), (_) => _random.nextInt(256));
     return Uint8List.fromList(list);
   }
 
@@ -45,19 +46,20 @@ class Generators {
   /// Generate a random string
   static String get getGeneratedString {
     final length = _random.nextInt(100) + 1;
-    final chars =
-        List.generate(length, (_) => _random.nextInt(36)).map((i) => String.fromCharCode(i < 10 ? i + 48 : i + 87));
+    final chars = List.generate(length, (_) => _random.nextInt(36))
+        .map((i) => String.fromCharCode(i < 10 ? i + 48 : i + 87));
     return chars.join();
   }
 
   static final mnemonicSizes = [
-        const MnemonicSize.words12(),
-        const MnemonicSize.words15(),
-        const MnemonicSize.words18(),
-        const MnemonicSize.words21(),
-        const MnemonicSize.words24(),
-      ];
+    const MnemonicSize.words12(),
+    const MnemonicSize.words15(),
+    const MnemonicSize.words18(),
+    const MnemonicSize.words21(),
+    const MnemonicSize.words24(),
+  ];
 
   /// Generate a random mnemonic size
-  static MnemonicSize get getGeneratedMnemonicSize => mnemonicSizes[_random.nextInt(5)];
+  static MnemonicSize get getGeneratedMnemonicSize =>
+      mnemonicSizes[_random.nextInt(5)];
 }

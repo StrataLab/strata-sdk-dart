@@ -1,4 +1,5 @@
-import 'package:brambldart/brambldart.dart'
+import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_sdk/strata_sdk.dart'
     show
         AddressCodecs,
         Either,
@@ -8,9 +9,8 @@ import 'package:brambldart/brambldart.dart'
         ValueTypeIdentifier,
         WalletApi,
         WalletStateAlgebra;
-import 'package:servicekit/toolkit/features/simple_transaction/simple_transaction_algebra_error.dart';
-import 'package:servicekit/toolkit/features/wallet/wallet_management_utils.dart';
-import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_servicekit/toolkit/features/simple_transaction/simple_transaction_algebra_error.dart';
+import 'package:strata_servicekit/toolkit/features/wallet/wallet_management_utils.dart';
 
 abstract class SimpleTransactionAlgebraDefinition {
   Future<Either<SimpleTransactionAlgebraError, IoTransaction>>
@@ -65,7 +65,7 @@ class SimpleTransactionAlgebra extends SimpleTransactionAlgebraDefinition {
     ValueTypeIdentifier typeIdentifier,
   ) async {
     try {
-      final lockChange = await transactionBuilderApi.lockAddress(lockForChange);
+      final lockChange = transactionBuilderApi.lockAddress(lockForChange);
       final eitherIoTransaction =
           await transactionBuilderApi.buildTransferAmountTransaction(
         typeIdentifier,
@@ -93,7 +93,7 @@ class SimpleTransactionAlgebra extends SimpleTransactionAlgebraDefinition {
 
       if (ioTransaction.outputs.length >= 2 && !nextIndicesExist) {
         final lockAddress =
-            await transactionBuilderApi.lockAddress(lockForChange);
+            transactionBuilderApi.lockAddress(lockForChange);
         final vk = someNextIndices != null
             ? walletApi.deriveChildKeys(keyPair, someNextIndices)
             : null;
@@ -108,7 +108,7 @@ class SimpleTransactionAlgebra extends SimpleTransactionAlgebraDefinition {
         );
       }
       return ioTransaction;
-    } catch (e, s) {
+    } catch (e) {
       throw CannotSerializeProtobufFile('Cannot write to file');
     }
   }
@@ -168,7 +168,7 @@ class SimpleTransactionAlgebra extends SimpleTransactionAlgebraDefinition {
             CreateTxError('Unable to get lock for next indices'));
       }
 
-      final fromAddress = await transactionBuilderApi
+      final fromAddress = transactionBuilderApi
           .lockAddress(Lock(predicate: predicateFundsToUnlock));
 
       final List<Txo> txos;

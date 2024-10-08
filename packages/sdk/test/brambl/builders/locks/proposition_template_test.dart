@@ -1,5 +1,5 @@
-import 'package:brambldart/brambldart.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_sdk/strata_sdk.dart';
 import 'package:test/test.dart';
 
 import '../../mock_helpers.dart';
@@ -19,7 +19,8 @@ void main() {
     });
 
     test('Build Height Proposition via Template', () {
-      final heightTemplate = HeightTemplate(mockChain, mockMin.toInt64, mockMax.toInt64);
+      final heightTemplate =
+          HeightTemplate(mockChain, mockMin.toInt64, mockMax.toInt64);
       final heightInstance = heightTemplate.build(mockVks.toProto());
 
       expect(heightInstance.isRight, isTrue);
@@ -55,23 +56,30 @@ void main() {
     test('Build Signature Proposition via Template', () {
       const entityIdx = 0;
       final entityVk = mockVks[entityIdx];
-      final signatureTemplate = SignatureTemplate(mockSigningRoutine, entityIdx);
+      final signatureTemplate =
+          SignatureTemplate(mockSigningRoutine, entityIdx);
       final signatureInstance = signatureTemplate.build(mockVks.toProto());
 
       expect(signatureInstance.isRight, isTrue);
       final signatureProposition = signatureInstance.get();
       expect(signatureProposition.hasDigitalSignature(), isTrue);
-      expect(signatureProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(signatureProposition.digitalSignature.verificationKey.toCrypto(), equals(entityVk));
+      expect(signatureProposition.digitalSignature.routine,
+          equals(mockSigningRoutine));
+      expect(signatureProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(entityVk));
     });
 
-    test('Failure to Build Signature Proposition via Template > Invalid Entity Index', () {
+    test(
+        'Failure to Build Signature Proposition via Template > Invalid Entity Index',
+        () {
       const entityIdx = 2;
-      final signatureTemplate = SignatureTemplate(mockSigningRoutine, entityIdx);
+      final signatureTemplate =
+          SignatureTemplate(mockSigningRoutine, entityIdx);
       final signatureInstance = signatureTemplate.build(mockVks.toProto());
 
       expect(signatureInstance.isLeft, isTrue);
-      expect(signatureInstance.swap().get(), isA<UnableToBuildPropositionTemplate>());
+      expect(signatureInstance.swap().get(),
+          isA<UnableToBuildPropositionTemplate>());
     });
 
     test('Build And Proposition via Template', () {
@@ -79,9 +87,12 @@ void main() {
       const rightEntityIdx = 1;
       final leftEntityVk = mockVks[leftEntityIdx];
       final rightEntityVk = mockVks[rightEntityIdx];
-      final leftSignatureTemplate = SignatureTemplate(mockSigningRoutine, leftEntityIdx);
-      final rightSignatureTemplate = SignatureTemplate(mockSigningRoutine, rightEntityIdx);
-      final andTemplate = AndTemplate(leftSignatureTemplate, rightSignatureTemplate);
+      final leftSignatureTemplate =
+          SignatureTemplate(mockSigningRoutine, leftEntityIdx);
+      final rightSignatureTemplate =
+          SignatureTemplate(mockSigningRoutine, rightEntityIdx);
+      final andTemplate =
+          AndTemplate(leftSignatureTemplate, rightSignatureTemplate);
       final andInstance = andTemplate.build(mockVks.toProto());
 
       expect(andInstance.isRight, isTrue);
@@ -91,10 +102,14 @@ void main() {
       final rightProposition = andProposition.and.right;
       expect(leftProposition.hasDigitalSignature(), isTrue);
       expect(rightProposition.hasDigitalSignature(), isTrue);
-      expect(leftProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(leftProposition.digitalSignature.verificationKey.toCrypto(), equals(leftEntityVk));
-      expect(rightProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(rightProposition.digitalSignature.verificationKey.toCrypto(), equals(rightEntityVk));
+      expect(
+          leftProposition.digitalSignature.routine, equals(mockSigningRoutine));
+      expect(leftProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(leftEntityVk));
+      expect(rightProposition.digitalSignature.routine,
+          equals(mockSigningRoutine));
+      expect(rightProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(rightEntityVk));
     });
 
     test('Build Or Proposition via Template', () {
@@ -102,9 +117,12 @@ void main() {
       const rightEntityIdx = 1;
       final leftEntityVk = mockVks[leftEntityIdx];
       final rightEntityVk = mockVks[rightEntityIdx];
-      final leftSignatureTemplate = SignatureTemplate(mockSigningRoutine, leftEntityIdx);
-      final rightSignatureTemplate = SignatureTemplate(mockSigningRoutine, rightEntityIdx);
-      final orTemplate = OrTemplate(leftSignatureTemplate, rightSignatureTemplate);
+      final leftSignatureTemplate =
+          SignatureTemplate(mockSigningRoutine, leftEntityIdx);
+      final rightSignatureTemplate =
+          SignatureTemplate(mockSigningRoutine, rightEntityIdx);
+      final orTemplate =
+          OrTemplate(leftSignatureTemplate, rightSignatureTemplate);
       final orInstance = orTemplate.build(mockVks.toProto());
 
       expect(orInstance.isRight, isTrue);
@@ -114,14 +132,19 @@ void main() {
       final rightProposition = orProposition.or.right;
       expect(leftProposition.hasDigitalSignature(), isTrue);
       expect(rightProposition.hasDigitalSignature(), isTrue);
-      expect(leftProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(leftProposition.digitalSignature.verificationKey.toCrypto(), equals(leftEntityVk));
-      expect(rightProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(rightProposition.digitalSignature.verificationKey.toCrypto(), equals(rightEntityVk));
+      expect(
+          leftProposition.digitalSignature.routine, equals(mockSigningRoutine));
+      expect(leftProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(leftEntityVk));
+      expect(rightProposition.digitalSignature.routine,
+          equals(mockSigningRoutine));
+      expect(rightProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(rightEntityVk));
     });
 
     test('Build Not Proposition via Template', () {
-      final heightTemplate = HeightTemplate(mockChain, mockMin.toInt64, mockMax.toInt64);
+      final heightTemplate =
+          HeightTemplate(mockChain, mockMin.toInt64, mockMax.toInt64);
       final notTemplate = NotTemplate(heightTemplate);
       final notInstance = notTemplate.build(mockVks.toProto());
 
@@ -140,15 +163,20 @@ void main() {
       const andRightEntityIdx = 1;
       final andLeftEntityVk = mockVks[andLeftEntityIdx];
       final andRightEntityVk = mockVks[andRightEntityIdx];
-      final andLeftSignatureTemplate = SignatureTemplate(mockSigningRoutine, andLeftEntityIdx);
-      final andRightSignatureTemplate = SignatureTemplate(mockSigningRoutine, andRightEntityIdx);
-      final andTemplate = AndTemplate(andLeftSignatureTemplate, andRightSignatureTemplate);
-      final heightTemplate = HeightTemplate(mockChain, mockMin.toInt64, mockMax.toInt64);
+      final andLeftSignatureTemplate =
+          SignatureTemplate(mockSigningRoutine, andLeftEntityIdx);
+      final andRightSignatureTemplate =
+          SignatureTemplate(mockSigningRoutine, andRightEntityIdx);
+      final andTemplate =
+          AndTemplate(andLeftSignatureTemplate, andRightSignatureTemplate);
+      final heightTemplate =
+          HeightTemplate(mockChain, mockMin.toInt64, mockMax.toInt64);
       final notTemplate = NotTemplate(heightTemplate);
       final lockedTemplate = LockedTemplate(null);
       final tickTemplate = TickTemplate(mockMin.toInt64, mockMax.toInt64);
       final orTemplate = OrTemplate(lockedTemplate, tickTemplate);
-      final thresholdTemplate = ThresholdTemplate([andTemplate, notTemplate, orTemplate], 3);
+      final thresholdTemplate =
+          ThresholdTemplate([andTemplate, notTemplate, orTemplate], 3);
 
       final thresholdInstance = thresholdTemplate.build(mockVks.toProto());
 
@@ -161,10 +189,14 @@ void main() {
       final andRightProposition = andProposition.and.right;
       expect(andLeftProposition.hasDigitalSignature(), isTrue);
       expect(andRightProposition.hasDigitalSignature(), isTrue);
-      expect(andLeftProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(andLeftProposition.digitalSignature.verificationKey.toCrypto(), equals(andLeftEntityVk));
-      expect(andRightProposition.digitalSignature.routine, equals(mockSigningRoutine));
-      expect(andRightProposition.digitalSignature.verificationKey.toCrypto(), equals(andRightEntityVk));
+      expect(andLeftProposition.digitalSignature.routine,
+          equals(mockSigningRoutine));
+      expect(andLeftProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(andLeftEntityVk));
+      expect(andRightProposition.digitalSignature.routine,
+          equals(mockSigningRoutine));
+      expect(andRightProposition.digitalSignature.verificationKey.toCrypto(),
+          equals(andRightEntityVk));
       final notProposition = thresholdProposition.threshold.challenges[1];
       expect(notProposition.hasNot(), isTrue);
       final innerProposition = notProposition.not.proposition;

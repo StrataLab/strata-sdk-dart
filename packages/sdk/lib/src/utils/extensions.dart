@@ -10,7 +10,8 @@ import 'package:strata_protobuf/strata_protobuf.dart' as pb;
 
 import '../common/functional/either.dart';
 import '../crypto/signing/ed25519/ed25519_spec.dart' as spec_e;
-import '../crypto/signing/extended_ed25519/extended_ed25519_spec.dart' as spec_xe;
+import '../crypto/signing/extended_ed25519/extended_ed25519_spec.dart'
+    as spec_xe;
 import '../crypto/signing/signing.dart' as spec;
 
 extension StringExtension on String {
@@ -26,7 +27,8 @@ extension StringExtension on String {
     return Int8List.fromList(bytes);
   }
 
-  (String, String) splitAt(int index) => (substring(0, index), substring(index));
+  (String, String) splitAt(int index) =>
+      (substring(0, index), substring(index));
 
   List<String> splitAtNewline() {
     return split('\n');
@@ -53,7 +55,9 @@ extension BigIntExtensions on BigInt {
   /// In the case of BigInt(0), it will return a Uint8List with a single 0 byte: [0]
   Uint8List toUint8List() {
     assert(this >= BigInt.zero, 'Cannot convert negative BigInt to Uint8List');
-    return this == BigInt.zero ? Uint8List(1) : toByteData().buffer.asUint8List();
+    return this == BigInt.zero
+        ? Uint8List(1)
+        : toByteData().buffer.asUint8List();
   }
 
   /// Converts a [BigInt] to an [Int8List]
@@ -126,7 +130,7 @@ extension IntExtensions on int {
 
   BigInt get toBigInt => BigInt.from(this);
 
-  //TODO(ultimaterex): SET TO LITTLE ENDIAN NOTATION AND REPLACE NON AUTO FLAWED INT TO UINT8LIST CONVERSION
+  // TODO(ultimaterex): SET TO LITTLE ENDIAN NOTATION AND REPLACE NON AUTO FLAWED INT TO UINT8LIST CONVERSION
   // Uint8List get toUint8ListAuto {
   //   if (this < 256) {
   //     return toUint8List;
@@ -158,7 +162,8 @@ extension Uint8ListExtension on Uint8List {
   /// Returns a [BigInt] representation of the [Uint8List] in little-endian byte order.
   BigInt fromLittleEndian() {
     final reversed = this.reversed.toList();
-    final hex = reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+    final hex =
+        reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
     return BigInt.parse(hex, radix: 16);
   }
 
@@ -228,7 +233,8 @@ extension Int8ListExtension on Int8List {
 
   BigInt fromLittleEndian() {
     final reversed = this.reversed.toList();
-    final hex = reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+    final hex =
+        reversed.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
     return BigInt.parse(hex, radix: 16);
   }
 }
@@ -291,7 +297,8 @@ extension IterableExtensions<T> on Iterable<T> {
     return skip(length - count);
   }
 
-  Iterable<T> sortedAlphabetically(Comparable Function(T e) key) => toList()..sort((a, b) => key(a).compareTo(key(b)));
+  Iterable<T> sortedAlphabetically(Comparable Function(T e) key) =>
+      toList()..sort((a, b) => key(a).compareTo(key(b)));
 
   /// Groups elements based on a key function
   /// returns a map of the grouped elements
@@ -410,7 +417,8 @@ extension CryptoVerificationKeyExtensions on spec.VerificationKey {
   pb.VerificationKey toProto() {
     if (this is spec_e.PublicKey) {
       final ePK = this as spec_e.PublicKey;
-      return pb.VerificationKey(ed25519: pb.VerificationKey_Ed25519Vk(value: ePK.bytes));
+      return pb.VerificationKey(
+          ed25519: pb.VerificationKey_Ed25519Vk(value: ePK.bytes));
     } else if (this is spec_xe.PublicKey) {
       final xePK = this as spec_xe.PublicKey;
       return pb.VerificationKey(

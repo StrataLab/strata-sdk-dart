@@ -1,6 +1,6 @@
-import 'package:brambldart/brambldart.dart' as brambl;
 import 'package:sembast/sembast.dart';
-import 'package:servicekit/models/fellowship.dart';
+import 'package:strata_sdk/strata_sdk.dart' as brambl;
+import 'package:strata_servicekit/models/fellowship.dart';
 
 class FellowshipStorageApi implements brambl.FellowshipStorageAlgebra {
   FellowshipStorageApi(this._instance);

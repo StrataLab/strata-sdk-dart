@@ -1,7 +1,8 @@
-name: brambldart
-description: Topl's Brambl SDK implemented in Dart for building the next blockchain for good.
+name: strata_sdk
+description: Strata's SDK implemented in Dart for building the next blockchain for good.
 version: 0.1.0
-repository: https://github.com/Topl/BramblDart
+homepage: "https://www.stratalab.xyz"
+repository: https://github.com/StrataLab/strata-sdk-dart
 
 
 environment:
@@ -17,7 +18,6 @@ dev_dependencies:
 
 dependencies:
   # --- internal ---
-  # topl_common: ^2.1.0
   strata_protobuf: ^0.1.0
   
   # --- third party ---

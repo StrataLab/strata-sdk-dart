@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:brambldart/brambldart.dart'
-    show Either, VaultStore, WalletApi, WalletApiFailure, WalletKeyApiAlgebra;
 import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_sdk/strata_sdk.dart'
+    show Either, VaultStore, WalletApi, WalletApiFailure, WalletKeyApiAlgebra;
 
 class WalletManagementUtils {
   WalletManagementUtils({

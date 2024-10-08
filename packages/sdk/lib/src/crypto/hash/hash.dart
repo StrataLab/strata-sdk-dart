@@ -4,8 +4,8 @@ import 'blake2b.dart';
 import 'digest/digest.dart';
 import 'sha.dart';
 
-export 'package:brambldart/src/crypto/hash/blake2b.dart';
-export 'package:brambldart/src/crypto/hash/sha.dart';
+export 'package:strata_sdk/src/crypto/hash/blake2b.dart';
+export 'package:strata_sdk/src/crypto/hash/sha.dart';
 
 /// Empty file for exporting all hash functions
 
@@ -35,7 +35,8 @@ abstract class Hash {
   /// [prefix] the prefix byte of the hashed message
   /// [messages] the set of messages to iteratively hash
   /// Returns the hash digest
-  Digest hashWithPrefix(int prefix, List<Message> messages) => hashComplex(prefix: prefix, messages: messages);
+  Digest hashWithPrefix(int prefix, List<Message> messages) =>
+      hashComplex(prefix: prefix, messages: messages);
 
   /// Hashes a message.
   ///

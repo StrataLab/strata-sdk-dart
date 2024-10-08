@@ -1,9 +1,6 @@
 import 'dart:io';
 
-import 'package:brambldart/brambldart.dart';
-import 'package:servicekit/api/storage_api.dart';
-import 'package:servicekit/api/wallet_key_api.dart';
-import 'package:servicekit/api/wallet_state_api.dart';
+import 'package:strata_sdk/strata_sdk.dart';
 
 class BaseSpec {
   static const testDirectory = './tmp';

@@ -57,7 +57,8 @@ class MnemonicSize {
   final int checksumLength;
   final int entropyLength;
 
-  static Either<PhraseFailure, MnemonicSize> fromNumberOfWords(int numberOfWords) {
+  static Either<PhraseFailure, MnemonicSize> fromNumberOfWords(
+      int numberOfWords) {
     switch (numberOfWords) {
       case 12:
         return Either.right(const MnemonicSize.words12());
@@ -70,7 +71,8 @@ class MnemonicSize {
       case 24:
         return Either.right(const MnemonicSize.words24());
       default:
-        return Either.left(PhraseFailure(PhraseFailureType.invalidWordLength, 'Invalid number of words'));
+        return Either.left(PhraseFailure(
+            PhraseFailureType.invalidWordLength, 'Invalid number of words'));
     }
   }
 }

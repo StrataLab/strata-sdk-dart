@@ -1,6 +1,6 @@
-import 'package:brambldart/brambldart.dart' as brambl;
 import 'package:sembast/sembast.dart';
-import 'package:servicekit/models/template.dart';
+import 'package:strata_sdk/strata_sdk.dart' as brambl;
+import 'package:strata_servicekit/models/template.dart';
 
 class TemplateStorageApi implements brambl.TemplateStorageAlgebra {
   TemplateStorageApi(this._instance);

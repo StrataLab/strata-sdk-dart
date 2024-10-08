@@ -1,6 +1,5 @@
-import 'package:brambldart/src/brambl/constants/network_constants.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
-
+import 'package:strata_sdk/src/brambl/constants/network_constants.dart';
 
 class AddressCodecTestCases {
   final testMainLockZeroLockAddress = LockAddress(
@@ -11,7 +10,8 @@ class AddressCodecTestCases {
     ),
   );
 
-  final testMainLockZeroLockAddressEncoded = 'mtetmain1y1Rqvj9PiHrsoF4VRHKscLPArgdWe44ogoiKoxwfevERNVgxLLh';
+  final testMainLockZeroLockAddressEncoded =
+      'mtetmain1y1Rqvj9PiHrsoF4VRHKscLPArgdWe44ogoiKoxwfevERNVgxLLh';
 
   final testTestLockZeroLockAddress = LockAddress(
     network: NetworkConstants.testNetworkId,
@@ -21,7 +21,8 @@ class AddressCodecTestCases {
     ),
   );
 
-  final testTestLockZeroLockAddressEncoded = 'vtetDGydU3EhwSbcRVFiuHmyP37Y57BwpmmutR7ZPYdD8BYssHEj3FRhr2Y8';
+  final testTestLockZeroLockAddressEncoded =
+      'vtetDGydU3EhwSbcRVFiuHmyP37Y57BwpmmutR7ZPYdD8BYssHEj3FRhr2Y8';
 
   final testPrivateLockZeroLockAddress = LockAddress(
     network: NetworkConstants.privateNetworkId,
@@ -31,7 +32,8 @@ class AddressCodecTestCases {
     ),
   );
 
-  final testPrivateLockZeroLockAddressEncoded = 'ptetP7jshHTuV9bmPmtVLm6PtUzBMZ8iYRvAxvbGTJ5VgiEPHqCCnZ8MLLdi';
+  final testPrivateLockZeroLockAddressEncoded =
+      'ptetP7jshHTuV9bmPmtVLm6PtUzBMZ8iYRvAxvbGTJ5VgiEPHqCCnZ8MLLdi';
 
   final testMainLockAllOneLockAddress = LockAddress(
     network: NetworkConstants.mainNetworkId,
@@ -41,7 +43,8 @@ class AddressCodecTestCases {
     ),
   );
 
-  final testMainLockAllOneLockAddressEncoded = 'mtetmain1y3Nb6xbRZiY6w4eCKrwsZeywmoFEHkugUSnS47dZeaEos36pZwb';
+  final testMainLockAllOneLockAddressEncoded =
+      'mtetmain1y3Nb6xbRZiY6w4eCKrwsZeywmoFEHkugUSnS47dZeaEos36pZwb';
 
   final testTestLockAllOneLockAddress = LockAddress(
     network: NetworkConstants.testNetworkId,
@@ -51,7 +54,8 @@ class AddressCodecTestCases {
     ),
   );
 
-  final testTestLockAllOneLockAddressEncoded = 'vtetDGydU3Gegcq4TLgQ8RbZ5whA54WYbgtXc4pQGLGHERhZmGtjRjwruMj7';
+  final testTestLockAllOneLockAddressEncoded =
+      'vtetDGydU3Gegcq4TLgQ8RbZ5whA54WYbgtXc4pQGLGHERhZmGtjRjwruMj7';
 
   final testPrivateLockAllOneLockAddress = LockAddress(
     network: NetworkConstants.privateNetworkId,
@@ -61,5 +65,6 @@ class AddressCodecTestCases {
     ),
   );
 
-  final testPrivateLockAllOneLockAddressEncoded = 'ptetP7jshHVrEKqDRdKAZtuybPZoMWTKKM2ngaJ7L5iZnxP5BprDB3hGJEFr';
+  final testPrivateLockAllOneLockAddressEncoded =
+      'ptetP7jshHVrEKqDRdKAZtuybPZoMWTKKM2ngaJ7L5iZnxP5BprDB3hGJEFr';
 }

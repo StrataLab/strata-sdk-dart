@@ -1,7 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:brambldart/brambldart.dart'
+import 'package:fixnum/fixnum.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:sembast/sembast.dart';
+import 'package:strata_protobuf/strata_protobuf.dart' as m;
+import 'package:strata_sdk/strata_sdk.dart'
     show
         AddressCodecs,
         Either,
@@ -16,17 +20,13 @@ import 'package:brambldart/brambldart.dart'
         SizedEvidence,
         WalletApi,
         WalletStateAlgebra;
-import 'package:fixnum/fixnum.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:sembast/sembast.dart';
-import 'package:servicekit/api/wallet_key_api.dart';
-import 'package:servicekit/models/cartesian.dart';
-import 'package:servicekit/models/digest.dart';
-import 'package:servicekit/models/fellowship.dart';
-import 'package:servicekit/models/template.dart';
-import 'package:servicekit/models/verification_key.dart' as sk;
-import 'package:servicekit/models/verification_key.dart';
-import 'package:strata_protobuf/strata_protobuf.dart' as m;
+import 'package:strata_servicekit/api/wallet_key_api.dart';
+import 'package:strata_servicekit/models/cartesian.dart';
+import 'package:strata_servicekit/models/digest.dart';
+import 'package:strata_servicekit/models/fellowship.dart';
+import 'package:strata_servicekit/models/template.dart';
+import 'package:strata_servicekit/models/verification_key.dart' as sk;
+import 'package:strata_servicekit/models/verification_key.dart';
 
 /// An implementation of the WalletStateAlgebra that uses a database to store state information.
 

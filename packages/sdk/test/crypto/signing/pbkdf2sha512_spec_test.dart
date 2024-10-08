@@ -1,6 +1,6 @@
-import 'package:brambldart/src/crypto/generation/entropy_to_seed.dart';
-import 'package:brambldart/src/utils/extensions.dart';
 import 'package:convert/convert.dart';
+import 'package:strata_sdk/src/crypto/generation/entropy_to_seed.dart';
+import 'package:strata_sdk/src/utils/extensions.dart';
 import 'package:test/test.dart';
 
 import 'test_vectors/pbkdf2_sha512_vectors.dart';

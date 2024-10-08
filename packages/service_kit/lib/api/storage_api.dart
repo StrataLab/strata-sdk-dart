@@ -1,5 +1,4 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:sembast/sembast.dart';
 import 'package:sembast_web/sembast_web.dart';
 
 /// Provides an API for managing storage using Isar and FlutterSecureStorage.

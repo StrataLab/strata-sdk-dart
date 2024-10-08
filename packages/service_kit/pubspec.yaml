@@ -1,8 +1,8 @@
-name: servicekit
+name: strata_servicekit
 description: Topl's ready to use toolkit for Flutter on the Topl Blockchain
 version: 0.1.0
-homepage:
-repository: https://github.com/Topl/dart_service_kit
+homepage: "https://www.stratalab.xyz"
+repository: https://github.com/StrataLab/strata_sdk_dart
 
 environment:
   sdk: '>=3.1.4 <4.0.0'
@@ -13,9 +13,9 @@ dependencies:
     sdk: flutter
 
 
-  #topl
+  #strata
   strata_protobuf: 0.1.0
-  brambldart: 0.1.0
+  strata_sdk: 0.1.0
 
   # types
   fixnum: ^1.1.0

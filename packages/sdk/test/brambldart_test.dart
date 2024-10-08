@@ -1,4 +1,4 @@
-import 'package:brambldart/brambldart.dart';
+import 'package:strata_sdk/strata_sdk.dart';
 import 'package:test/test.dart';
 
 main() {

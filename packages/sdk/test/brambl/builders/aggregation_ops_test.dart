@@ -2,9 +2,9 @@
 
 import 'dart:typed_data';
 
-import 'package:brambldart/brambldart.dart';
-import 'package:brambldart/src/utils/extensions.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_sdk/src/utils/extensions.dart';
+import 'package:strata_sdk/strata_sdk.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -60,7 +60,8 @@ void main() {
       // final signedBytes = Int8List.fromList(bytes);
       // print(signedBytes); // Prints: [0, -61, 70]
 
-      final int decimalValue = ByteData.view(bytes.buffer).getInt16(0, Endian.little);
+      final int decimalValue =
+          ByteData.view(bytes.buffer).getInt16(0, Endian.little);
       // final int decimalValueAsSigned = ByteData.view(signedBytes.buffer).getInt16(0, Endian.little);
       // print(decimalValue); // Prints: -15616.
       // print(decimalValueAsSigned); // Prints: -15616.
@@ -93,7 +94,8 @@ void main() {
       print(fastBigIntValue);
 
       // convert back into Uint8List (slow method)
-      final Uint8List convertedBytes = fromAccurateBigIntWithOriginalBytes(accurateBigIntValue, bytes);
+      final Uint8List convertedBytes =
+          fromAccurateBigIntWithOriginalBytes(accurateBigIntValue, bytes);
       print(convertedBytes);
 
       // convert back into Uint8List (Fast method)
@@ -104,7 +106,8 @@ void main() {
   });
 
   test("Speedtests vs Accuracy", () {
-    measureExecutionTime('Original Implementation | supposedly Fast Method', () {
+    measureExecutionTime('Original Implementation | supposedly Fast Method',
+        () {
       final bytes = Uint8List.fromList([0, 195, 70]);
       final bigIntValue = bytes.toBigInt;
       print(bigIntValue);
@@ -113,17 +116,20 @@ void main() {
 
     print("----------------------------------");
 
-    measureExecutionTime("New Accurate Implementation From & To | Supposedly slower", () {
+    measureExecutionTime(
+        "New Accurate Implementation From & To | Supposedly slower", () {
       final bytes = Uint8List.fromList([0, 195, 70]);
       final BigInt accurateBigIntValue = toAccurateBigInt(bytes);
-      final Uint8List convertedBytes = fromAccurateBigIntWithOriginalBytes(accurateBigIntValue, bytes);
+      final Uint8List convertedBytes =
+          fromAccurateBigIntWithOriginalBytes(accurateBigIntValue, bytes);
       print(accurateBigIntValue);
       print(convertedBytes);
     });
 
     print("----------------------------------");
 
-    measureExecutionTime("New Mixed Implementation From & Old To | Supposedly slower", () {
+    measureExecutionTime(
+        "New Mixed Implementation From & Old To | Supposedly slower", () {
       final bytes = Uint8List.fromList([0, 195, 70]);
       final BigInt accurateBigIntValue = toAccurateBigInt(bytes);
       // final Uint8List convertedBytes = fromAccurateBigInt(accurateBigIntValue, bytes);
@@ -133,10 +139,12 @@ void main() {
 
     print("----------------------------------");
 
-    measureExecutionTime("New Mixed Implementation Old From & new To | Supposedly slower", () {
+    measureExecutionTime(
+        "New Mixed Implementation Old From & new To | Supposedly slower", () {
       final bytes = Uint8List.fromList([0, 195, 70]);
       final BigInt accurateBigIntValue = bytes.toBigInt;
-      final Uint8List convertedBytes = fromAccurateBigIntWithOriginalBytes(accurateBigIntValue, bytes);
+      final Uint8List convertedBytes =
+          fromAccurateBigIntWithOriginalBytes(accurateBigIntValue, bytes);
       print(accurateBigIntValue);
       print(convertedBytes);
     });
@@ -180,12 +188,15 @@ void main() {
 }
 
 BigInt toAccurateBigInt(Uint8List bytes) {
-  final String hexString = bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+  final String hexString =
+      bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
   return BigInt.parse(hexString, radix: 16);
 }
 
-Uint8List fromAccurateBigIntWithOriginalBytes(BigInt bigInt, Uint8List originalBytes) {
-  final String hexString = bigInt.toRadixString(16).padLeft(originalBytes.length * 2, '0');
+Uint8List fromAccurateBigIntWithOriginalBytes(
+    BigInt bigInt, Uint8List originalBytes) {
+  final String hexString =
+      bigInt.toRadixString(16).padLeft(originalBytes.length * 2, '0');
   final Uint8List bytes = Uint8List(hexString.length ~/ 2);
   for (int i = 0; i < hexString.length; i += 2) {
     final hex = hexString.substring(i, i + 2);

@@ -1,5 +1,6 @@
 class Pbkdf2Sha512TestVector {
-  Pbkdf2Sha512TestVector(this.password, this.salt, this.keySize, this.iterations, this.result);
+  Pbkdf2Sha512TestVector(
+      this.password, this.salt, this.keySize, this.iterations, this.result);
   final String password;
   final String salt;
   final int keySize;

@@ -1,6 +1,6 @@
 // import 'package:brambldart/brambldart.dart';
-// import 'package:servicekit/toolkit/features/simple_transaction/simple_transaction.dart';
-// import 'package:servicekit/toolkit/features/simple_transaction/simple_transaction_algebra.dart';
+// import 'package:strata_servicekit/toolkit/features/simple_transaction/simple_transaction.dart';
+// import 'package:strata_servicekit/toolkit/features/simple_transaction/simple_transaction_algebra.dart';
 // import 'package:test/test.dart';
 
 void main() {

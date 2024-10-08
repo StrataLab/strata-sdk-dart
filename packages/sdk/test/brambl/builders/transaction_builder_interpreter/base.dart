@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:brambldart/brambldart.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:strata_protobuf/strata_protobuf.dart';
+import 'package:strata_sdk/strata_sdk.dart';
 
 import '../../mock_helpers.dart';
 
@@ -51,10 +51,14 @@ class TransactionBuilderInterpreterBase {
   //   ChangeAddr
   // )
 
-  Txo valToTxo(Value value, {LockAddress? lockAddress, TransactionOutputAddress? txAddress}) {
+  Txo valToTxo(Value value,
+      {LockAddress? lockAddress, TransactionOutputAddress? txAddress}) {
     final la = lockAddress ?? inLockFullAddress;
     final dta = txAddress ?? dummyTxoAddress;
-    return Txo(transactionOutput: valToUtxo(value, lockAddress: la), state: TxoState.UNSPENT, outputAddress: dta);
+    return Txo(
+        transactionOutput: valToUtxo(value, lockAddress: la),
+        state: TxoState.UNSPENT,
+        outputAddress: dta);
   }
 
   UnspentTransactionOutput valToUtxo(Value value, {LockAddress? lockAddress}) {
@@ -65,8 +69,10 @@ class TransactionBuilderInterpreterBase {
   IoTransaction sortedTx(IoTransaction tx) {
     tx.freeze();
     return tx.rebuild((p0) {
-      p0.outputs.sortedAlphabetically((utxo) => ContainsImmutable.unspentOutput(utxo).immutableBytes.toString());
-      p0.inputs.sortedAlphabetically((stxo) => ContainsImmutable.spentOutput(stxo).immutableBytes.toString());
+      p0.outputs.sortedAlphabetically((utxo) =>
+          ContainsImmutable.unspentOutput(utxo).immutableBytes.toString());
+      p0.inputs.sortedAlphabetically((stxo) =>
+          ContainsImmutable.spentOutput(stxo).immutableBytes.toString());
     });
   }
 
@@ -89,8 +95,11 @@ class TransactionBuilderInterpreterBase {
   //       .toList();
   // }
 
-  List<UnspentTransactionOutput> buildUtxos(List<Value> values, LockAddress lockAddr) {
-    return values.map((value) => valToUtxo(value, lockAddress: lockAddr)).toList();
+  List<UnspentTransactionOutput> buildUtxos(
+      List<Value> values, LockAddress lockAddr) {
+    return values
+        .map((value) => valToUtxo(value, lockAddress: lockAddr))
+        .toList();
   }
 
   List<UnspentTransactionOutput> buildRecipientUtxos(List<Value> values) {
@@ -101,27 +110,34 @@ class TransactionBuilderInterpreterBase {
     return buildUtxos(values, changeAddress);
   }
 
-  final mockSeriesPolicyAlt =
-      SeriesPolicy(label: "Mock Series Policy", registrationUtxo: dummyTxoAddress.rebuild((b) => b..index = 44));
-  final mockGroupPolicyAlt =
-      GroupPolicy(label: "Mock Group Policy", registrationUtxo: dummyTxoAddress.rebuild((b) => b..index = 55));
+  final mockSeriesPolicyAlt = SeriesPolicy(
+      label: "Mock Series Policy",
+      registrationUtxo: dummyTxoAddress.rebuild((b) => b..index = 44));
+  final mockGroupPolicyAlt = GroupPolicy(
+      label: "Mock Group Policy",
+      registrationUtxo: dummyTxoAddress.rebuild((b) => b..index = 55));
 
-  late final groupValueAlt = groupValue.rebuild((b) => b..group.groupId = mockGroupPolicyAlt.computeId);
-  late final seriesValueAlt = seriesValue.rebuild((b) => b..series.seriesId = mockSeriesPolicyAlt.computeId);
+  late final groupValueAlt = groupValue
+      .rebuild((b) => b..group.groupId = mockGroupPolicyAlt.computeId);
+  late final seriesValueAlt = seriesValue
+      .rebuild((b) => b..series.seriesId = mockSeriesPolicyAlt.computeId);
 
   late final assetGroupSeriesAlt = toAltAsset(assetGroupSeries);
   late final assetGroupAlt = toAltAsset(assetGroup);
   late final assetSeriesAlt = toAltAsset(assetSeries);
 
-  late final assetGroupSeriesAccumulatorAlt = toAltAsset(assetGroupSeriesAccumulator);
+  late final assetGroupSeriesAccumulatorAlt =
+      toAltAsset(assetGroupSeriesAccumulator);
   late final assetGroupAccumulatorAlt = toAltAsset(assetGroupAccumulator);
   late final assetSeriesAccumulatorAlt = toAltAsset(assetSeriesAccumulator);
 
-  late final assetGroupSeriesFractionableAlt = toAltAsset(assetGroupSeriesFractionable);
+  late final assetGroupSeriesFractionableAlt =
+      toAltAsset(assetGroupSeriesFractionable);
   late final assetGroupFractionableAlt = toAltAsset(assetGroupFractionable);
   late final assetSeriesFractionableAlt = toAltAsset(assetSeriesFractionable);
 
-  late final assetGroupSeriesImmutableAlt = toAltAsset(assetGroupSeriesImmutable);
+  late final assetGroupSeriesImmutableAlt =
+      toAltAsset(assetGroupSeriesImmutable);
   late final assetGroupImmutableAlt = toAltAsset(assetGroupImmutable);
   late final assetSeriesImmutableAlt = toAltAsset(assetSeriesImmutable);
 
