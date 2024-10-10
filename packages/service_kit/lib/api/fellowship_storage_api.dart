@@ -1,6 +1,6 @@
 import 'package:sembast/sembast.dart';
 import 'package:strata_sdk/strata_sdk.dart' as sdk;
-import 'package:strata_servicekit/models/fellowship.dart';
+import 'package:strata_service_kit/models/fellowship.dart';
 
 class FellowshipStorageApi implements sdk.FellowshipStorageAlgebra {
   FellowshipStorageApi(this._instance);

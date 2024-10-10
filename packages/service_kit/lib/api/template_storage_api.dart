@@ -1,6 +1,6 @@
 import 'package:sembast/sembast.dart';
 import 'package:strata_sdk/strata_sdk.dart' as sdk;
-import 'package:strata_servicekit/models/template.dart';
+import 'package:strata_service_kit/models/template.dart';
 
 class TemplateStorageApi implements sdk.TemplateStorageAlgebra {
   TemplateStorageApi(this._instance);

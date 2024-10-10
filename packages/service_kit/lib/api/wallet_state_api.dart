@@ -20,13 +20,13 @@ import 'package:strata_sdk/strata_sdk.dart'
         SizedEvidence,
         WalletApi,
         WalletStateAlgebra;
-import 'package:strata_servicekit/api/wallet_key_api.dart';
-import 'package:strata_servicekit/models/cartesian.dart';
-import 'package:strata_servicekit/models/digest.dart';
-import 'package:strata_servicekit/models/fellowship.dart';
-import 'package:strata_servicekit/models/template.dart';
-import 'package:strata_servicekit/models/verification_key.dart' as sk;
-import 'package:strata_servicekit/models/verification_key.dart';
+import 'package:strata_service_kit/api/wallet_key_api.dart';
+import 'package:strata_service_kit/models/cartesian.dart';
+import 'package:strata_service_kit/models/digest.dart';
+import 'package:strata_service_kit/models/fellowship.dart';
+import 'package:strata_service_kit/models/template.dart';
+import 'package:strata_service_kit/models/verification_key.dart' as sk;
+import 'package:strata_service_kit/models/verification_key.dart';
 
 /// An implementation of the WalletStateAlgebra that uses a database to store state information.
 

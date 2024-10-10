@@ -9,8 +9,8 @@ import 'package:strata_sdk/strata_sdk.dart'
         ValueTypeIdentifier,
         WalletApi,
         WalletStateAlgebra;
-import 'package:strata_servicekit/toolkit/features/simple_transaction/simple_transaction_algebra_error.dart';
-import 'package:strata_servicekit/toolkit/features/wallet/wallet_management_utils.dart';
+import 'package:strata_service_kit/toolkit/features/simple_transaction/simple_transaction_algebra_error.dart';
+import 'package:strata_service_kit/toolkit/features/wallet/wallet_management_utils.dart';
 
 abstract class SimpleTransactionAlgebraDefinition {
   Future<Either<SimpleTransactionAlgebraError, IoTransaction>>
@@ -92,8 +92,7 @@ class SimpleTransactionAlgebra extends SimpleTransactionAlgebraDefinition {
       }
 
       if (ioTransaction.outputs.length >= 2 && !nextIndicesExist) {
-        final lockAddress =
-            transactionBuilderApi.lockAddress(lockForChange);
+        final lockAddress = transactionBuilderApi.lockAddress(lockForChange);
         final vk = someNextIndices != null
             ? walletApi.deriveChildKeys(keyPair, someNextIndices)
             : null;
