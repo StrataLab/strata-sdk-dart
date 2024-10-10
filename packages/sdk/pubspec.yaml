@@ -1,6 +1,6 @@
 name: strata_sdk
 description: Strata's SDK implemented in Dart for building the next blockchain for good.
-version: 0.1.0
+version: 0.0.0
 homepage: "https://www.stratalab.xyz"
 repository: https://github.com/StrataLab/strata-sdk-dart
 
