@@ -26,4 +26,4 @@ jobs:
         run: melos bootstrap
 
       - name: Publish
-        run: melos publish
+        run: melos publish --no-dry-run --yes
