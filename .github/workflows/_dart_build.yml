@@ -11,10 +11,12 @@ jobs:
       - name: Checkout current branch
         uses: actions/checkout@v4
 
-      - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
 
-      - name: Setup Dart Global
+      - name: Install melos
         run: dart pub global activate melos
 
       - name: Setup Melos
