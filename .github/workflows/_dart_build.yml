@@ -15,7 +15,7 @@ jobs:
         uses: dart-lang/setup-dart@v1
 
       - name: Setup Dart Global
-        run: pub global activate melos
+        run: dart pub global activate melos
 
       - name: Setup Melos
         run: melos bootstrap
