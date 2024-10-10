@@ -1,3 +1,6 @@
+## 0.0.0
+- Re-release under Strata
+
 ## 2.0.0-beta.2
 - Contract was renamed to Template
 - Codecs updated to reflect BramblSc

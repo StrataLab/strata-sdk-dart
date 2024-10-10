@@ -1,3 +1,6 @@
+## 0.0.0
+- Re-release under Strata
+
 ## 2.0.0-beta.1
 - Implements the rename from Contract to Template
 - Modifies the Sembast DB structures to use simpler/shorter names
