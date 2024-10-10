@@ -1,0 +1,44 @@
+name: strata_sdk
+description: Strata's SDK implemented in Dart for building the next blockchain for good.
+version: 0.1.0
+homepage: "https://www.stratalab.xyz"
+repository: https://github.com/StrataLab/strata-sdk-dart
+
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.21.0
+  dependency_validator: ^3.2.2
+  build_runner: ^2.1.1
+
+
+dependencies:
+  # --- internal ---
+  strata_protobuf: ^0.1.0
+  
+  # --- third party ---
+  pointycastle: ^3.1.3
+  convert: ^3.1.1
+  hashlib: ^1.9.0
+  collection: ^1.17.2
+  uuid: ^4.2.1
+  meta: ^1.9.1
+  protobuf: ^3.1.0
+  grpc: ^4.0.1
+  fixnum: ^1.1.0
+  fast_base58: ^0.2.1
+
+assets:
+  - lib/assets/bip-0039/
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:

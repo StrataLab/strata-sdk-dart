@@ -1,0 +1,29 @@
+name: deploy
+on:
+  push:
+    tags: ["*"]
+
+jobs:
+  build:
+    name: Build and Test Dart
+    uses: ./.github/workflows/_dart_build.yml
+  publish-dart:
+    name: Publish Dart
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Required for authentication using OIDC
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Setup Dart Global
+        run: pub global activate melos
+        
+      - name: Setup Melos
+        run: melos bootstrap
+
+      - name: Publish
+        run: melos publish --no-dry-run --yes
